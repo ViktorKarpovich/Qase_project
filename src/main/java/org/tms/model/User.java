@@ -2,8 +2,8 @@ package org.tms.model;
 
 public class User {
 
-    private String login = " ";
-    private String password =" ";
+    private String login = "vik.karpovich@gmail.com";
+    private String password ="tmsproject2022";
 
     public User(){
 
