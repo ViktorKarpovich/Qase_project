@@ -1,7 +1,14 @@
 package org.tms.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ProjectsPage extends BasePage{
 
@@ -10,6 +17,7 @@ public class ProjectsPage extends BasePage{
     private String projectDescription = "testDescription1";
 
     private boolean projectAccessTypePublic = true;
+
 
     @FindBy(xpath = "//button[@id='createButton']")
     private WebElement createNewProjectButton;
@@ -68,5 +76,59 @@ public class ProjectsPage extends BasePage{
     public String getTextOfEmptyProject(){
         return textOfEmptyProject.getText();
     }
+
+    public ProjectsPage waitTextIsLoaded() {
+        waitVisibilityOf(textOfEmptyProject);
+        return this;
+    }
+
+    @FindBy(xpath = "//a[contains(.,'testName1')]")
+    public WebElement nameOfExistingProject;
+
+    public String getName0fExistingProject(){
+        return nameOfExistingProject.getText();
+    }
+
+    @FindBy(xpath = "//button[@class='add-filter-button']")
+    public WebElement addFilterButton;
+
+    public void clickAddFilterButton(){
+        addFilterButton.click();
+    }
+
+    @FindBy(xpath = "//button[contains(.,'Milestones')]")
+    public WebElement milestonesFilterOption;
+
+    public void clickMilestonesFilterOption(){
+        milestonesFilterOption.click();
+    }
+
+    @FindBy(xpath = "//input[@id='milestones-0']")
+    public WebElement noMilestonesOption;
+
+    public void clickNoMilestonesOption(){
+        noMilestonesOption.click();
+    }
+
+    @FindBy(xpath = "//input[@name = 'title']")
+    public WebElement searchField;
+
+    public void searchProjects(){
+        searchField.sendKeys(projectName);
+    }
+
+    public ProjectsPage waitNameOfProjectLoaded(){
+        waitVisibilityOf(nameOfExistingProject);
+        return this;
+    }
+
+    @FindBy(xpath = "//span[contains(.,'Milestones: Without milestones')]")
+    public WebElement selectedMilestonesOption;
+
+    public String getTextOfselectedMilestonesOption(){
+        return selectedMilestonesOption.getText();
+    }
+
+
 
 }
