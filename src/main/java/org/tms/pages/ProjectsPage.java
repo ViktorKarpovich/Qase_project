@@ -82,11 +82,15 @@ public class ProjectsPage extends BasePage{
         return this;
     }
 
-    @FindBy(xpath = "//a[contains(.,'testName1')]")
+    @FindBy(xpath = "//a[@href='/project/TTESTCODE1']")
     public WebElement nameOfExistingProject;
 
     public String getName0fExistingProject(){
         return nameOfExistingProject.getText();
+    }
+
+    public void clickExistingProject(){
+        nameOfExistingProject.click();
     }
 
     @FindBy(xpath = "//button[@class='add-filter-button']")
@@ -128,6 +132,8 @@ public class ProjectsPage extends BasePage{
     public String getTextOfselectedMilestonesOption(){
         return selectedMilestonesOption.getText();
     }
+
+
 
 
 
