@@ -1,6 +1,5 @@
-package org.tms.pages;
+package org.tms.ui.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

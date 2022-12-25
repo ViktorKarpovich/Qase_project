@@ -1,14 +1,8 @@
-package org.tms.tests;
+package org.tms.ui.tests;
 
-import net.bytebuddy.utility.nullability.AlwaysNull;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.tms.driver.DriverSingleton;
-
-import java.sql.Driver;
+import org.tms.ui.driver.DriverSingleton;
 
 public class BaseTest {
     protected WebDriver driver;

@@ -1,11 +1,11 @@
-package org.tms.tests;
+package org.tms.ui.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.model.User;
-import org.tms.pages.ProjectsPage;
-import org.tms.services.LoginPageService;
+import org.tms.ui.model.User;
+import org.tms.ui.pages.ProjectsPage;
+import org.tms.ui.services.LoginPageService;
 
 public class CreateNewProjectTest extends BaseTest {
 

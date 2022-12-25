@@ -1,13 +1,14 @@
-package org.tms.pages;
+package org.tms.ui.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RepositoryPage extends BasePage{
 
-    private String newSuiteName = "Test Suite Name1";
-    private String newSuiteDescription = "Test Description1";
-    private String newSuitePreconditions = "Test suit preconditions1";
+    private final static String newSuiteName = "Test Suite Name1";
+    private final static String newSuiteDescription = "Test Description1";
+    private final static String newSuitePreconditions = "Test suit preconditions1";
+    private final static String newTestCaseTitle = "Test title for test case";
 
     @FindBy(xpath = "//div[@class='dGJtKy']")
     public WebElement repositoryImage;
@@ -22,13 +23,6 @@ public class RepositoryPage extends BasePage{
     public RepositoryPage waitRepositoryLoaded(){
         waitVisibilityOf(repositoryImage);
         return this;
-    }
-
-    @FindBy(xpath = "//a[contains(.,'Create new case')]")
-    public WebElement createNewCaseButton;
-
-    public void clickCreateNewCaseButton(){
-        createNewSuiteButton.click();
     }
 
     @FindBy(xpath = "//input[@id='name']")
@@ -98,6 +92,20 @@ public class RepositoryPage extends BasePage{
     }
     public String getNameOfRemovingNotification(){
         return textOfRemovingNotification.getText();
+    }
+
+    @FindBy(id = "create-case-button")
+    public WebElement createNewCaseButton;
+
+    public void clickCreateNewCaseButton(){
+        createNewCaseButton.click();
+    }
+
+    @FindBy(id = "title")
+    public WebElement titleOfNewTestCase;
+
+    public void fillTitleOfNewTestCase(){
+        titleOfNewTestCase.sendKeys(newTestCaseTitle);
     }
 
 
