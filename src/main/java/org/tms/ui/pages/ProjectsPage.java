@@ -75,6 +75,13 @@ public class ProjectsPage extends BasePage{
         return this;
     }
 
+    @FindBy(xpath = "//a[@href='/workspace']")
+    public WebElement workspacePageButton;
+
+    public void clickWorkspaceButton(){
+        workspacePageButton.click();
+    }
+
     @FindBy(xpath = "//a[@href='/project/TTESTCODE1']")
     public WebElement nameOfExistingProject;
 

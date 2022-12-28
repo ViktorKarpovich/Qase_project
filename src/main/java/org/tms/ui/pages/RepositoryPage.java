@@ -94,19 +94,9 @@ public class RepositoryPage extends BasePage{
         return textOfRemovingNotification.getText();
     }
 
-    @FindBy(id = "create-case-button")
-    public WebElement createNewCaseButton;
 
-    public void clickCreateNewCaseButton(){
-        createNewCaseButton.click();
-    }
 
-    @FindBy(id = "title")
-    public WebElement titleOfNewTestCase;
 
-    public void fillTitleOfNewTestCase(){
-        titleOfNewTestCase.sendKeys(newTestCaseTitle);
-    }
 
 
 
