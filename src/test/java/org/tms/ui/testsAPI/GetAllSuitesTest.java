@@ -1,19 +1,17 @@
 package org.tms.ui.testsAPI;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.tms.api.adapters.ProjectAdapter;
+import org.tms.api.adapters.SuiteAdapter;
 
-import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
 
-public class GetAllProjectsTest {
-
+public class GetAllSuitesTest {
+    private String projectCode = "VCODE";
     @Test
-    public void getAllProjectsTest(){
-        int statusCode = new ProjectAdapter().getAllProjects().statusCode();
+    public void getAllSuitesTest(){
+        int statusCode = new SuiteAdapter().getAllSuites(projectCode).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK);
     }
-
 }

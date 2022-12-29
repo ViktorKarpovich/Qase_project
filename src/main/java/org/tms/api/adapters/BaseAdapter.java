@@ -22,9 +22,13 @@ public class BaseAdapter {
     protected Response post(String url, String body){
         return given()
                 .header(API_TOKEN_NAME, API_KEY)
-                .header()
-
-
-    }
+                .header(CONTENT_TYPE, JSON)
+                .body(body)
+                .when()
+                .post(API_URL + url)
+                .then()
+                .log().all()
+                .extract().response();
+   }
 
 }
