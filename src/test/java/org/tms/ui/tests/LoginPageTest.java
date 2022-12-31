@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,7 +16,8 @@ public class LoginPageTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test
+    @Test(enabled = true, retryAnalyzer = org.tms.utils.Retry.class)
+    @Description("Test #1, Login")
     public void loginTest(){
         User user = new User();
         String actualTextOfCreateNewProjectButton = loginPageService.login(user).getNewProjectButtonText();

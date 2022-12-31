@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,7 +21,8 @@ public class CreateNewProjectTest extends BaseTest {
         loginPageService.login(user);
     }
 
-    @Test
+    @Test(enabled = true)
+    @Description ("test")
     public void creationNewPrivateProjectTest(){
         projectsPage.clickNewProjectButton();
         projectsPage.fillingProjectNameField();
@@ -31,7 +33,7 @@ public class CreateNewProjectTest extends BaseTest {
         Assert.assertEquals(projectsPage.getTextOfEmptyProject(), expectedTextOfNewEmptyProject);
     }
 
-    @Test
+    @Test(enabled = false)
     public void creationNewPublicProjectWithDescriptionTest(){
         projectsPage.clickNewProjectButton();
         projectsPage.fillingProjectNameField();

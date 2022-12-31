@@ -7,39 +7,31 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverSingleton {
+    private static  ThreadLocal<DriverSingleton> instance = new ThreadLocal<>();
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
-    private DriverSingleton(){
-
+    private DriverSingleton() {
+        driver = WebDriverFactory.getWebDriver();
     }
 
-    public static WebDriver getDriver(){
-        if(null == driver){
-            switch(System.getProperty("browser", "chrome")){
-                case "firefox":{
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                }
-                case "edge":{
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    break;
-                }
-                default:{
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                }
-            }
-            driver.manage().window().maximize();
+    public static synchronized DriverSingleton getInstance() {
+        if (instance.get() == null) {
+            instance.set(new DriverSingleton());
         }
+        return instance.get();
+    }
+
+    public WebDriver getDriver() {
         return driver;
     }
 
-    public static void closeBrowser(){
-        driver.quit();
-        driver = null;
+    public void closeDriver() {
+        try {
+            driver.quit();
+            driver = null;
+        } finally {
+            instance.remove();
+        }
     }
-    
 }
