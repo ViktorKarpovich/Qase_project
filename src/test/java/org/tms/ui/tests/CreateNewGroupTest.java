@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -28,7 +29,8 @@ public class CreateNewGroupTest extends BaseTest{
 
     }
 
-    @Test
+    @Test(enabled = true)
+    @Description("Creation of new group test")
     public void createNewGroupTest() throws InterruptedException {
         workspacePage.clickGroupsTab();
         Thread.sleep(2000);

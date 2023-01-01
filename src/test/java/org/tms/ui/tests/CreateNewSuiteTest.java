@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -26,8 +27,9 @@ public class CreateNewSuiteTest extends BaseTest {
         projectsPage.clickExistingProject();
     }
 
-    @Test
-    public void deleteSuiteTest() {
+    @Test(enabled = true)
+    @Description("Creation of new project with private access")
+    public void createSuiteTest() {
         repositoryPage.waitRepositoryLoaded();
         repositoryPage.clickCreateNewSuiteButton();
         repositoryPage.fillDescriptionField();

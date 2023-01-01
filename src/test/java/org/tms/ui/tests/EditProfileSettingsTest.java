@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,7 +26,8 @@ public class EditProfileSettingsTest extends BaseTest{
         projectsPage.clickWorkspaceButton();
     }
 
-    @Test
+    @Test(enabled = true)
+    @Description("Editing role of the user in profile settings")
     public void editProfileSettingsTest() throws InterruptedException {
         workspacePage.waitUserSectionLoaded();
         workspacePage.clickDropdownUserSettingButton();

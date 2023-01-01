@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,8 +27,9 @@ public class DeleteGroupTest extends BaseTest{
 
     }
 
-    @Test
-    public void createNewGroupTest() throws InterruptedException {
+    @Test(enabled = true)
+    @Description("Removing of new group")
+    public void deleteNewGroupTest() throws InterruptedException {
         workspacePage.clickGroupsTab();
         workspacePage.waitOptionsButtonOfGroupLoaded();
         workspacePage.clickOptionsButtonOfGroup();

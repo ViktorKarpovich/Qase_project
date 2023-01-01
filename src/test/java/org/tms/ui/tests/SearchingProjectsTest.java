@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,7 +21,8 @@ public class SearchingProjectsTest extends BaseTest{
         loginPageService.login(user);
     }
 
-    @Test
+    @Test(enabled = true)
+    @Description("Searching for existing project using search field")
     public void searchingProjectTest(){
         projectsPage.searchProjects();
         projectsPage.waitNameOfProjectLoaded();
@@ -28,8 +30,9 @@ public class SearchingProjectsTest extends BaseTest{
         Assert.assertEquals(expectedProject, projectsPage.getName0fExistingProject());
     }
 
-    @Test
-    public void filterExistingProjects(){
+    @Test(enabled = true)
+    @Description("Filtering existing projects using filters section")
+    public void filterExistingProjectsTest(){
         projectsPage.clickAddFilterButton();
         projectsPage.clickMilestonesFilterOption();
         projectsPage.clickNoMilestonesOption();

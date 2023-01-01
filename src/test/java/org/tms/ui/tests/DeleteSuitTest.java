@@ -1,5 +1,6 @@
 package org.tms.ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,7 +26,8 @@ public class DeleteSuitTest extends BaseTest{
         projectsPage.clickExistingProject();
     }
 
-    @Test
+    @Test(enabled = true)
+    @Description("Removing suite")
     public void deleteSuiteTest() {
         repositoryPage.waitTrashButtonLoaded();
         repositoryPage.clickTrashButton();

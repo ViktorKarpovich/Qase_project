@@ -22,7 +22,7 @@ public class CreateNewProjectTest extends BaseTest {
     }
 
     @Test(enabled = true)
-    @Description ("test")
+    @Description ("Creation of new project with private access")
     public void creationNewPrivateProjectTest(){
         projectsPage.clickNewProjectButton();
         projectsPage.fillingProjectNameField();
@@ -33,16 +33,5 @@ public class CreateNewProjectTest extends BaseTest {
         Assert.assertEquals(projectsPage.getTextOfEmptyProject(), expectedTextOfNewEmptyProject);
     }
 
-    @Test(enabled = false)
-    public void creationNewPublicProjectWithDescriptionTest(){
-        projectsPage.clickNewProjectButton();
-        projectsPage.fillingProjectNameField();
-        projectsPage.fillingProjectCodeField();
-        projectsPage.fillingProjectDescriptionField();
-        projectsPage.clickCreateProjectButton();
-        String expectedTextOfNewEmptyProject = "Looks like you don’t have any suites and cases yet.";
-        projectsPage.waitTextIsLoaded();
-        Assert.assertEquals(projectsPage.getTextOfEmptyProject(), expectedTextOfNewEmptyProject);
-    }
 }
 
