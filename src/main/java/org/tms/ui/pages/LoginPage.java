@@ -16,6 +16,8 @@ public class LoginPage extends BasePage{
 
     @FindBy(xpath = "//button[@id='btnLogin']")
     private WebElement loginButton;
+
+
     @Step("Step 1, opening login page")
     public LoginPage openPage(String url) {
         log.info("Step 1, opening login page");
