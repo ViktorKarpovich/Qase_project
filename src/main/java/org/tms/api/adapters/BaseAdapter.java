@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static org.tms.api.utils.Constants.*;
+import static org.tms.utils.Constants.*;
 
 public class BaseAdapter {
     protected Gson converter = new Gson();
