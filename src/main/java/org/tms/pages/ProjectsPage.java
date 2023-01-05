@@ -78,7 +78,6 @@ public class ProjectsPage extends BasePage{
         return nameOfExistingProject.getText();
     }
     public void clickExistingProject(){
-        waitVisibilityOf(nameOfExistingProject);
         nameOfExistingProject.click();
     }
     @Step("Step 1, clicking the 'Add filter' button")
@@ -98,7 +97,7 @@ public class ProjectsPage extends BasePage{
     }
     public void searchProjects(){
         searchField.sendKeys(PROJECT_NAME);
-        waitVisibilityOf(nameOfExistingProject);
+
     }
 
     @Step("Step 1, clicking the 'Settings' button")

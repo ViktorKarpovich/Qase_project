@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke Test" parallel="tests" thread-count="3">
+    <test name="Login Test">
+        <classes>
+            <class name="org.tms.ui.LoginPageTest"></class>
+        </classes>
+    </test>
+
+
+    <test name="Projects creation">
+        <classes>
+            <class name="org.tms.ui.CreateNewProjectTest"></class>
+        </classes>
+    </test>
+    <test name="Projects filtering">
+        <classes><class name="org.tms.ui.FilteringProjectsTest"></class></classes>
+    </test>
+</suite>

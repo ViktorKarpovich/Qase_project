@@ -13,6 +13,7 @@ import org.tms.pages.WorkspacePage;
 import org.tms.services.LoginPageService;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class CreateNewGroupTest extends BaseTest{
     private LoginPageService loginPageService;
@@ -21,6 +22,7 @@ public class CreateNewGroupTest extends BaseTest{
 
     @BeforeClass
     public void setUp(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         loginPageService = new LoginPageService();
         projectsPage = new ProjectsPage();
         workspacePage = new WorkspacePage();
@@ -31,10 +33,8 @@ public class CreateNewGroupTest extends BaseTest{
 
     @Test(enabled = true)
     @Description("Creation of new group test")
-    public void createNewGroupTest() throws InterruptedException {
+    public void createNewGroupTest() {
         workspacePage.clickGroupsTab();
-        WebElement firstResult = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfAllElements());
         workspacePage.clickCreateNewGroupButton();
         workspacePage.fillGroupTitleField();
         workspacePage.fillDescriptionOfNewGroup();

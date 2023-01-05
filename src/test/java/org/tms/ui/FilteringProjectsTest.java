@@ -8,8 +8,7 @@ import org.tms.model.User;
 import org.tms.pages.ProjectsPage;
 import org.tms.services.LoginPageService;
 
-public class SearchingProjectsTest extends BaseTest{
-
+public class FilteringProjectsTest extends BaseTest{
     private LoginPageService loginPageService;
     private ProjectsPage projectsPage;
 
@@ -22,11 +21,14 @@ public class SearchingProjectsTest extends BaseTest{
     }
 
     @Test(enabled = true)
-    @Description("Searching for existing project using search field")
-    public void searchingProjectTest(){
-        projectsPage.searchProjects();
-        String expectedProject = "testName1";
-        Assert.assertEquals(expectedProject, projectsPage.getName0fExistingProject(), "Projects were found");
+    @Description("Filtering existing projects using filters section")
+    public void filterExistingProjectsTest(){
+        projectsPage.clickAddFilterButton();
+        projectsPage.clickMilestonesFilterOption();
+        projectsPage.clickNoMilestonesOption();
+        String expectedNameOfSelectedOption = "Milestones: Without milestones";
+        Assert.assertEquals(projectsPage.getTextOfselectedMilestonesOption(),expectedNameOfSelectedOption,
+                "The projects have been successfully filtered");
     }
 
 }

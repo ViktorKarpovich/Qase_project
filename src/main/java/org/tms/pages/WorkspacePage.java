@@ -78,8 +78,7 @@ public class WorkspacePage extends BasePage{
 
     @Step("Step 2, clicking the 'Create new group' button")
     public void clickCreateNewGroupButton(){
-        waitVisibilityOf(createNewGroupButton);
-        createNewGroupButton.click();
+        waitClickableOf(createNewGroupButton).click();
     }
 
     @Step("Step 3, filling the 'Group title' field")

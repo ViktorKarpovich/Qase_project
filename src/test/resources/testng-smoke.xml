@@ -3,12 +3,15 @@
 <suite name="Smoke Test" parallel="tests" thread-count="1">
     <test name="Login Test">
         <classes>
+            <class name="org.tms.ui.LoginPageTest"></class>
+            <class name="org.tms.ui.CreateNewProjectTest"></class>
+            <class name="org.tms.ui.FilteringProjectsTest"></class>
+            <class name="org.tms.ui.SearchingProjectsTest"></class>
             <class name="org.tms.ui.CreateNewGroupTest"></class>
             <class name="org.tms.ui.DeleteGroupTest"></class>
             <class name="org.tms.ui.CreateNewSuiteTest"></class>
             <class name="org.tms.ui.DeleteSuitTest"></class>
             <class name="org.tms.ui.LoginPageTest"></class>
-            <class name="org.tms.ui.CreateNewProjectTest"></class>
         </classes>
     </test>
 </suite>

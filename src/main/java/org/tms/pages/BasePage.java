@@ -8,10 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tms.driver.DriverSingleton;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class BasePage {
 
-    private static final long WAIT_TIMEOUT_SECONDS = 1000;
+    private static final long WAIT_TIMEOUT_SECONDS = 3000;
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     protected BasePage(){
@@ -22,6 +23,13 @@ public abstract class BasePage {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.visibilityOf(element));
     }
+
+    protected WebElement waitClickableOf(WebElement element) {
+        return (WebElement) new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+
 }
 
 
