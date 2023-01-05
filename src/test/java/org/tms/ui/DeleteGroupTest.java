@@ -28,7 +28,7 @@ public class DeleteGroupTest extends BaseTest{
 
     @Test(enabled = true)
     @Description("Removing of new group")
-    public void deleteNewGroupTest() throws InterruptedException {
+    public void deleteNewGroupTest() {
         workspacePage.clickGroupsTab();
         workspacePage.clickOptionsButtonOfGroup();
         workspacePage.clickDeleteButton();

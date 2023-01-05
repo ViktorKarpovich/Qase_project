@@ -21,12 +21,7 @@ public class CreateNewProjectTest extends BaseTest {
         loginPageService.login(user);
     }
 
-    @Test
-    public void LoginPageTest(){
-
-    }
-
-    @Test(enabled = true, dependsOnMethods = {"LoginPageTest"})
+    @Test(enabled = true)
     @Description ("Creation of new project with private access")
     public void creationNewPrivateProjectTest(){
         projectsPage.clickNewProjectButton();

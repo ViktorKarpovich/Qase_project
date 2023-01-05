@@ -23,17 +23,16 @@ public class CreateNewSuiteTest extends BaseTest {
         repositoryPage = new RepositoryPage();
         User user = new User();
         loginPageService.login(user);
-        projectsPage.clickExistingProject();
+        projectsPage.clickExistingProjectDemo();
     }
 
     @Test(enabled = true)
     @Description("Creation of new project with private access")
     public void createSuiteTest() {
         repositoryPage.clickCreateNewSuiteButton();
-        repositoryPage.fillDescriptionField();
-        repositoryPage.fillPreconditionsField();
         repositoryPage.fillSuiteNameField();
         repositoryPage.suiteNameField.sendKeys(Keys.ENTER);
+        repositoryPage.waitMessageLoaded();
         String textSuccessNotification = "Suite was successfully created.";
         Assert.assertEquals(repositoryPage.getNameOfSuccessNotification(), textSuccessNotification);
     }

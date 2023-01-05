@@ -25,8 +25,10 @@ public class ProjectsPage extends BasePage{
     private WebElement textOfEmptyProject;
     @FindBy(xpath = "//a[@href='/workspace']")
     private WebElement workspacePageButton;
-    @FindBy(xpath = "//a[@href='/project/TTESTCODE1']")
+    @FindBy(xpath = "//a[@href='/project/TESTCODE1']")
     private WebElement nameOfExistingProject;
+    @FindBy(xpath = "//a[@href='/project/DEMO1']")
+    private WebElement nameOfExistingProjectDemo;
     @FindBy(xpath = "//button[@class='add-filter-button']")
     private WebElement addFilterButton;
     @FindBy(xpath = "//button[contains(.,'Milestones')]")
@@ -78,8 +80,12 @@ public class ProjectsPage extends BasePage{
         return nameOfExistingProject.getText();
     }
     public void clickExistingProject(){
-        nameOfExistingProject.click();
+        waitVisibilityOf(nameOfExistingProject).click();
     }
+    public void clickExistingProjectDemo(){
+        waitVisibilityOf(nameOfExistingProjectDemo).click();
+    }
+
     @Step("Step 1, clicking the 'Add filter' button")
     public void clickAddFilterButton(){
         log.info("Step 1, clicking the 'Add filter' button");

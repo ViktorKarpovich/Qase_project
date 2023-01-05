@@ -22,7 +22,7 @@ public class DeleteSuitTest extends BaseTest{
         repositoryPage = new RepositoryPage();
         User user = new User();
         loginPageService.login(user);
-        projectsPage.clickExistingProject();
+        projectsPage.clickExistingProjectDemo();
     }
 
     @Test(enabled = true)

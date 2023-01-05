@@ -14,14 +14,8 @@ public class RepositoryPage extends BasePage{
     private WebElement repositoryImage;
     @FindBy(xpath = "//span[contains(.,'Create new suite')]")
     private WebElement createNewSuiteButton;
-    @FindBy(xpath = "//input[@id='name']")
+    @FindBy(xpath = "//input[@id='title']")
     public WebElement suiteNameField;
-    @FindBy(xpath = "//*[@id=\"descriptionGroup\"]/div[1]/div/div/div[2]/div/div[2]/div/div/p")
-    private WebElement descriptionField;
-    @FindBy(xpath = "//*[@id=\"preconditionsGroup\"]/div[1]/div/div/div[2]/div/div[2]/div/div/p")
-    private WebElement preconditionsField;
-    @FindBy(xpath = "//button[contains(.,'Import')]")
-    private WebElement importButton;
     @FindBy(xpath = "//span[contains(.,'Suite was successfully created.')]")
     private WebElement textOfSuccessNotification;
     @FindBy(xpath = "//i[@class='far fa-trash']")
@@ -34,21 +28,17 @@ public class RepositoryPage extends BasePage{
 
     @Step("Step 1, clicking the 'Create new suite' button")
     public void clickCreateNewSuiteButton(){
-        waitVisibilityOf(repositoryImage);
-        createNewSuiteButton.click();
+        waitVisibilityOf(createNewSuiteButton).click();
     }
 
-    @Step("Step 4, filling the 'Suite name' field and submitting form")
+    @Step("Step 2, filling the 'Suite name' field and submitting form")
     public void fillSuiteNameField(){
+        waitVisibilityOf(suiteNameField);
         suiteNameField.sendKeys(NEW_SUITE_NAME);
     }
-    @Step("Step 2, filling the 'Description' field")
-    public void fillDescriptionField(){
-        descriptionField.sendKeys(NEW_SUITE_DESCRIPTION);
-    }
-    @Step("Step 3, filling the 'Preconditions' field")
-    public void fillPreconditionsField(){
-        preconditionsField.sendKeys(NEW_SUITE_PRECONDITIONS);
+
+    public void waitMessageLoaded(){
+        waitVisibilityOf(textOfSuccessNotification);
     }
     public String getNameOfSuccessNotification(){
         return textOfSuccessNotification.getText();

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Smoke Test" parallel="tests" thread-count="1">
+<suite name="Smoke Test" parallel="tests" thread-count="3">
     <test name="Login Test">
         <classes>
             <class name="org.tms.ui.LoginPageTest"></class>
-            <class name="org.tms.ui.CreateNewProjectTest"></class>
-            <class name="org.tms.ui.FilteringProjectsTest"></class>
-            <class name="org.tms.ui.SearchingProjectsTest"></class>
-            <class name="org.tms.ui.CreateNewGroupTest"></class>
-            <class name="org.tms.ui.DeleteGroupTest"></class>
-            <class name="org.tms.ui.CreateNewSuiteTest"></class>
-            <class name="org.tms.ui.DeleteSuitTest"></class>
-            <class name="org.tms.ui.LoginPageTest"></class>
         </classes>
     </test>
+    <test name="Removing Group Test">
+        <classes>
+            <class name="org.tms.ui.DeleteGroupTest"></class>
+        </classes>
+    </test>
+    <test name="Creation/Removing Suite Test">
+        <classes>
+            <class name="org.tms.ui.CreateNewSuiteTest"></class>
+            <class name="org.tms.ui.DeleteSuitTest"></class>
+        </classes>
+    </test>
+
 </suite>
